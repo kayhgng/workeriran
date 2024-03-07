@@ -1,7 +1,7 @@
 import { connect } from 'cloudflare:sockets';
 // KayH GNG
 // چجوری uuid بگیریم؟
-// اگر با ویندوز هستید cmd رو باز کنید و کد رو وارد کنید Powershell -NoExit -Command "[guid]::NewGuid()
+// اگر با ویندوز هستید cmd داخل گیتهاب به نشانی https://github.com/kayhgng/workeriran میتونید uuidgenerator رو دانلود کنید و دریافت کنید.
 // اگر با اندروید یا سیستم عامل دیگری هستید سایت https://www.uuidgenerator.net/ براتون میسازه
 let userID = '';
 
