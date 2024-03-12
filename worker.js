@@ -5,7 +5,9 @@ import { connect } from 'cloudflare:sockets';
 // اگر با اندروید یا سیستم عامل دیگری هستید سایت https://www.uuidgenerator.net/ براتون میسازه
 let userID = '';
 
-let proxyIP = '';
+const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'workers.bestip.one'];
+
+let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 
 if (!isValidUUID(userID)) {
@@ -61,7 +63,7 @@ export default {
 async function vlessOverWSHandler(request) {
 
 	/** @type {import("@cloudflare/workers-types").WebSocket[]} */
-	// @ts-ignore
+	
 	const webSocketPair = new WebSocketPair();
 	const [client, webSocket] = Object.values(webSocketPair);
 
@@ -114,7 +116,7 @@ async function vlessOverWSHandler(request) {
 				// webSocket.close(1000, message);
 				return;
 			}
-			// if UDP but port not DNS port, close it
+			// اگر UDP و پورت DNS نیست، آن را ببندید
 			if (isUDP) {
 				if (portRemote === 53) {
 					isDns = true;
@@ -128,7 +130,7 @@ async function vlessOverWSHandler(request) {
 			const vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
 			const rawClientData = chunk.slice(rawDataIndex);
 
-			// TODO: support udp here when cf runtime has udp support
+			//  زمانی که cf runtime از udp پشتیبانی می کند، از udp پشتیبانی کنید
 			if (isDns) {
 				const { write } = await handleUDPOutBound(webSocket, vlessResponseHeader, log);
 				udpStreamWrite = write;
