@@ -5,6 +5,8 @@
 
 هم داخل v2ray و هیدیفای و اینو بگم که این ورکر برای اینستاگرام ، تلگرام ، واتساپ و یسری سایت های روزمره کاربران عادی جوابگو هست.
 
+ورکر اصلاح شد. و سایت های پشت کلود فلر هم پشتیبانی میشود.
+
 اجرا میشه هم در سایر برنامه ها روششم اینطوریه
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
